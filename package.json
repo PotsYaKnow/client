@@ -5,7 +5,7 @@
   "author": "kasozi wilson <soziandwelewilson@gmail.com>",
   "private": true,
   "scripts": {
-    "start": "node main.js"
+    "start": "node main.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --hot --config webpack.conf.js",
     "staging": "cross-env NODE_ENV=staging webpack",
     "build": "cross-env NODE_ENV=production webpack --config webpack.conf.js"
