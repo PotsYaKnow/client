@@ -23,6 +23,25 @@ const webpackConfig = merge(commonConfig, {
       chunks: 'all'
     }
   },
+  module: {
+    rules: [{
+      test: /\.(sa|sc|c)ss$/,
+      use: [
+        'vue-style-loader',
+        { loader: 'css-loader', options: { importLoaders: 1 } },
+        {
+          loader: 'postcss-loader',
+          options: {
+            ident: 'postcss',
+            plugins: [
+              require('tailwindcss'),
+              require('autoprefixer'),
+            ],
+          }
+        }
+      ]
+    }]
+  },
   plugins: [
     new webpack.EnvironmentPlugin(environment),
     new webpack.HotModuleReplacementPlugin(),

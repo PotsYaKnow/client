@@ -1,6 +1,7 @@
 'use strict';
 
 const path = require('path')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
@@ -11,6 +12,8 @@ const isDev = process.env.NODE_ENV === 'development';
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
+
+
 
 const webpackConfig = {
   entry: {
@@ -41,23 +44,6 @@ const webpackConfig = {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [helpers.root('src')]
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'vue-style-loader',
-          { loader: 'css-loader', options: { importLoaders: 1 } },
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              plugins: [
-                require('tailwindcss'),
-                require('autoprefixer'),
-              ],
-            }
-          }
-        ]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
