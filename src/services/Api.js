@@ -7,7 +7,7 @@ let baseURL = null
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   baseURL = `http://localhost:8081/`
 } else {
-  baseURL = process.env.prod_url
+  baseURL = process.env.api_url
 }
 
 export default () => {
@@ -15,7 +15,7 @@ export default () => {
     baseURL: baseURL,
     headers: {
       "Access-Control-Allow-Credentials": true,
-      "Access-Control-Allow-Origin": "http://localhost:8000",
+      "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Headers": "*"
 
     }
