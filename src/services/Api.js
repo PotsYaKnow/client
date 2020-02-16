@@ -7,7 +7,7 @@ let baseURL = null
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   baseURL = `http://localhost:8081/`
 } else {
-  baseURL = process.env.api_url
+  baseURL = 'https://potsyaknow-server.herokuapp.com'
 }
 
 export default () => {
