@@ -1,11 +1,23 @@
 import axios from 'axios'
 import store from '@/store/index'
 
+
+let baseURL = null
+
+if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+  baseURL = `http://localhost:8081/`
+} else {
+  baseURL = 'http://api.example.com'
+}
+
 export default () => {
   return axios.create({
-    baseURL: `http://localhost:8081/`,
+    baseURL: baseURL,
     headers: {
-      Authorization: `Bearer ${store.state.user.token}`
+      "Access-Control-Allow-Credentials": true,
+      "Access-Control-Allow-Origin": "http://localhost:8000",
+      "Access-Control-Allow-Headers": "*"
+
     }
   })
 }

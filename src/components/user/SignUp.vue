@@ -6,13 +6,7 @@
           <label class="textfield-label" for="email">
             Email
           </label>
-          <input v-model="email" class="textfield" id="email" type="text" placeholder="Email">
-        </div>
-        <div class="mb-4 vertical-container-left">
-          <label class="textfield-label" for="username">
-            Username
-          </label>
-          <input v-model="username" class="textfield" id="username" type="text" placeholder="JohnnyPotsington">
+          <input v-model="email" class="textfield" id="email" type="text" placeholder="Email" autofocus="">
         </div>
         <div class="mb-4 vertical-container-left">
           <label class="textfield-label" for="user-location">
@@ -20,10 +14,17 @@
           </label>
           <select  class="textfield" v-model="userLocation">
             <option  v-for="userLocation in allUserLocations" v-bind:value="userLocation.id">
-              {{ userLocation.name }}
+              {{ userLocation.country }}
             </option>
           </select>
         </div>
+        <div class="mb-4 vertical-container-left">
+          <label class="textfield-label" for="username">
+            Username
+          </label>
+          <input v-model="username" class="textfield" id="username" type="text" placeholder="JohnnyPotsington">
+        </div>
+
         <div class="mb-6 vertical-container-left">
           <label class="textfield-label" for="password">
             Password
@@ -50,7 +51,7 @@
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
 import { mapState } from 'vuex'
-import UserLocationService from '@/services/UserLocationService'
+import LocationService from '@/services/LocationService'
 
 export default {
   name: 'signup',
@@ -67,7 +68,7 @@ export default {
     }
   },
   async mounted () {
-    this.allUserLocations = (await UserLocationService.getAll()).data
+    this.allUserLocations = (await LocationService.all()).data
   },
   methods: {
     async signup () {
@@ -77,12 +78,12 @@ export default {
           username: this.username,
           email: this.email,
           password: this.password,
-          userLocation: this.userLocation
+          locationId: this.userLocation
         })
 
-        this.$store.dispatch('user/setToken', response.data.token)
-        this.$store.dispatch('user/setUser', response.data.user)
-        this.$router.push({
+
+
+       this.$router.push({
           name: 'index'
         })
 

@@ -1,7 +1,7 @@
 import Api from '@/services/Api'
 
 export default {
-  getAll() {
-    return Api().get('userLocation')
+  all() {
+    return Api().get('locations')
   },
 }

@@ -11,15 +11,10 @@
   </div>
 </template>
 <script>
-import SearchPotsPanel from './pot/SearchPotsPanel'
-import SearchPotField from './pot/SearchPotField'
 
 export default {
   name: 'Index',
-  components: {
-    'searchPotPanel': SearchPotsPanel,
-    'searchPotField': SearchPotField
-  },
+
 }
 
 </script>

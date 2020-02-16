@@ -5,8 +5,7 @@
   "author": "kasozi wilson <soziandwelewilson@gmail.com>",
   "private": true,
   "scripts": {
-    "start": "node main.js",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --hot --config webpack.conf.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --display --verbose --hotOnly --config webpack.conf.js",
     "staging": "cross-env NODE_ENV=staging webpack",
     "build": "cross-env NODE_ENV=production webpack --config webpack.conf.js"
   },
@@ -43,10 +42,12 @@
     "chai": "^4.2.0",
     "chalk": "^3.0.0",
     "chromedriver": "^79.0.0",
+    "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.1.1",
     "cross-env": "^6.0.3",
     "cross-spawn": "^7.0.1",
     "css-loader": "^3.4.0",
+    "express": "^4.17.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^5.0.2",
     "friendly-errors-webpack-plugin": "^1.7.0",

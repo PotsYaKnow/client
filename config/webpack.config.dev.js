@@ -3,6 +3,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const helpers = require('./helpers');
 const commonConfig = require('./webpack.config.common');
 const environment = require('./env/dev.env');
@@ -44,8 +45,8 @@ const webpackConfig = merge(commonConfig, {
   },
   plugins: [
     new webpack.EnvironmentPlugin(environment),
-    new webpack.HotModuleReplacementPlugin(),
-    new FriendlyErrorsPlugin()
+    new FriendlyErrorsPlugin(),
+    new CleanWebpackPlugin()
   ],
   devServer: {
     compress: true,
