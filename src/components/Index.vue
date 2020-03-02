@@ -1,6 +1,6 @@
 <template>
   <div class=" container mx-auto">
-    <div v-if="!$store.state.user.isUserLoggedIn">
+    <div >
       <h1>
         Pots Ya Know
       </h1>
@@ -8,26 +8,15 @@
         Connecting the pottery community one score and slip at a time.
       </h2>
     </div>
-    <div class="flex mb-5 ml-2" v-if="$store.state.user.isUserLoggedIn">
-      <router-link :to="{name: 'create-pot'}">
-        <button class="btn btn-blue">Add Pot</button>
-      </router-link>
-    </div>
     <div>
-      <searchPotField />
-      <searchPotPanel />
     </div>
   </div>
 </template>
 <script>
-import SearchPotsPanel from './pot/SearchPotsPanel'
-import SearchPotField from './pot/SearchPotField'
 
 export default {
-  name: 'Index',
+  name: 'publicPots',
   components: {
-    'searchPotPanel': SearchPotsPanel,
-    'searchPotField': SearchPotField
   },
 }
 

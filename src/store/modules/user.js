@@ -1,40 +1,23 @@
 const state = {
-  token: null,
-  user: null,
   isUserLoggedIn: false
 }
 
 const mutations = {
-  setToken(state, token) {
-
-    state.token = token
-    if (token) {
-      state.isUserLoggedIn = true
-    } else {
-      state.isUserLoggedIn = false
-    }
+  login(state, isLoggedIn) {
+    state.isUserLoggedIn = true
   },
-  setUser(state, user) {
-    state.user = user
-  },
-  resetState(state)
-  {
-    Object.keys(state).forEach(key => {
-      state[key] = null
-    })
+  logout(state) {
+    state.isUserLoggedIn = false
   }
 }
 
 
 const actions = {
-  setToken({ commit, state }, token) {
-    commit('setToken', token)
-  },
-  setUser({ commit, state }, user) {
-    commit('setUser', user)
+  login({ commit, state }) {
+    commit('login')
   },
   logout({ commit, state }) {
-    commit('resetState')
+    commit('logout')
   }
 }
 

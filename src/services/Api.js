@@ -13,11 +13,6 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
 export default () => {
   return axios.create({
     baseURL: baseURL,
-    headers: {
-      "Access-Control-Allow-Credentials": true,
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "*"
-
-    }
+    withCredentials: true
   })
 }

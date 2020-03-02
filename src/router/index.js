@@ -8,6 +8,9 @@ import PotEditing from '@/components/pot/PotEditing.vue'
 import PotHistory from '@/components/pot/PotHistory.vue'
 import PotHistoryEditing from '@/components/pot/PotHistoryEditing.vue'
 
+import StudioIndex from '@/components/studio/Index.vue'
+//import StudioCreation from '@/components/studio/Create.vue'
+
 Vue.use(Router)
 
 const routes = [{
@@ -36,18 +39,23 @@ const routes = [{
     component: PotHistoryEditing
   },
   {
+    path: '/studio',
+    name: 'StudioViewAll',
+    component: StudioIndex
+  },
+  {
     path: '/pot/view/:potId',
     name: 'view-pot',
     component: PotHistory
   },
   {
-    path: '/studio',
-    name: 'index',
+    path: '/publicPots',
+    name: 'publicPots',
     component: Index
   },
   {
     path: '',
-    redirect: { name: 'index' }
+    redirect: { name: 'publicPots' }
   }
 ]
 

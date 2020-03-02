@@ -21,11 +21,9 @@
         <div v-html="error" class="danger-alert"> </div>
         <br>
         <div>
-
-            <button class="btn btn-blue" @click="login">
-              Login
-            </button>
-
+          <button class="btn btn-blue" @click="login">
+            Login
+          </button>
         </div>
       </form>
     </panel>
@@ -57,11 +55,16 @@ export default {
           password: this.password
         })
 
-        this.$store.dispatch('user/setToken', response.data.token)
-        this.$store.dispatch('user/setUser', response.data.user)
-        this.$router.push({
+
+        if (response.status == 200) {
+          this.$store.dispatch('user/login', response.data.token)
+        }
+
+
+
+        /*this.$router.push({
           name: 'index'
-        })
+        })*/
       } catch (error) {
         this.error = error.response.data.error
       }

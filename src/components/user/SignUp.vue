@@ -12,8 +12,8 @@
           <label class="textfield-label" for="user-location">
             Location
           </label>
-          <select  class="textfield" v-model="userLocation">
-            <option  v-for="userLocation in allUserLocations" v-bind:value="userLocation.id">
+          <select  class="textfield" v-model="userLocationId">
+            <option  v-for="userLocation in allUserLocations" v-bind:value="userLocation.locationId">
               {{ userLocation.country }}
             </option>
           </select>
@@ -63,12 +63,13 @@ export default {
       password: '',
       error: null,
       allUserLocations: [],
-      userLocation: 1
+      userLocationId: 1
 
     }
   },
   async mounted () {
     this.allUserLocations = (await LocationService.all()).data
+
   },
   methods: {
     async signup () {
@@ -78,17 +79,18 @@ export default {
           username: this.username,
           email: this.email,
           password: this.password,
-          locationId: this.userLocation
+          locationId: this.userLocationId
         })
 
-
+       if (response.status == 200) {
+         this.$store.dispatch('user/login', response.data.token)
+       }
 
        this.$router.push({
           name: 'index'
         })
 
       } catch (error) {
-        console.log(error)
         this.error = error.response.data.error
       }
     }
