@@ -9,9 +9,7 @@
           Home
         </button>
       </router-link>
-
-     <studioMenu/>
-
+      <studioMenu />
     </div>
     <div class="flex justify-end">
       <router-link :to="{name: 'login'}">
@@ -32,9 +30,39 @@
 </template>
 <script>
 import StudioMenu from './studio/StudioMenu'
+import AuthenticationService from '@/services/AuthenticationService'
+import { createNamespacedHelpers } from 'vuex'
+const { mapState, mapActions } = createNamespacedHelpers('user')
 export default {
-components: { studioMenu: StudioMenu },
+  components: { studioMenu: StudioMenu },
   methods: {
+    async logout () {
+      try {
+        //tell app user is not logged in
+        this.$store.dispatch('user/logout')
+
+      } catch (err) {
+
+      }
+    }
+  },
+  computed: {
+    ...mapState({
+      isUserLoggedIn: state => state.isUserLoggedIn
+    })
+  },
+  async mounted () {
+    //does app think user is logged in
+    if (this.isUserLoggedIn) {
+
+      //check server to see if cookie is present and valid
+      const isUserLoggedIn = (await AuthenticationService.isUserLoggedIn()).data.isUserLoggedIn
+
+      if (!isUserLoggedIn) {
+        this.$store.dispatch('user/logout')
+      }
+    }
+
   }
 }
 

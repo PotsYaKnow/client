@@ -3,7 +3,7 @@ const state = {
 }
 
 const mutations = {
-  login(state, isLoggedIn) {
+  login(state) {
     state.isUserLoggedIn = true
   },
   logout(state) {
@@ -21,10 +21,18 @@ const actions = {
   }
 }
 
+const getters = {
+  isUserLoggedIn: state => {
+    return state.isUserLoggedIn
+  }
+}
+
+
 
 export default {
   namespaced: true,
   state,
   actions,
-  mutations
+  mutations,
+  getters
 }

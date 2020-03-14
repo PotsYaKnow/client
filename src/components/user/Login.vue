@@ -56,15 +56,11 @@ export default {
         })
 
 
-        if (response.status == 200) {
-          this.$store.dispatch('user/login', response.data.token)
-        }
+          this.$store.dispatch('user/login')
 
-
-
-        /*this.$router.push({
-          name: 'index'
-        })*/
+        this.$router.push({
+          name: 'studio'
+        })
       } catch (error) {
         this.error = error.response.data.error
       }

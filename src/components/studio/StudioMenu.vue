@@ -18,6 +18,8 @@
 </template>
 <script>
 import StudioService from '@/services/StudioService'
+import { createNamespacedHelpers } from 'vuex'
+const { mapState, mapActions } = createNamespacedHelpers('user')
 export default {
 
   data() {
@@ -26,11 +28,16 @@ export default {
       allStudios: null
     }
   },
-
-  async mounted () {
-    this.allStudios = (await StudioService.getAll()).data
+  computed: {
+    ...mapState({
+      isUserLoggedIn: state => state.isUserLoggedIn
+    })
   },
-
+  async mounted () {
+    if (this.isUserLoggedIn) {
+      this.allStudios = (await StudioService.getAll()).data
+    }
+  },
   methods: {
     async showMenu () {
       this.hideMenu = !this.hideMenu

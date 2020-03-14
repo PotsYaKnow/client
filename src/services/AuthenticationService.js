@@ -1,10 +1,13 @@
 import Api from '@/services/Api'
 
 export default {
-  signup (credentials) {
+  signup(credentials) {
     return Api().post('signup', credentials)
   },
-  login (credentials) {
+  login(credentials) {
     return Api().post('login', credentials)
+  },
+  isUserLoggedIn() {
+    return Api().get('isUserLoggedIn')
   }
 }
