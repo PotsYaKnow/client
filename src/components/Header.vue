@@ -60,6 +60,9 @@ export default {
 
       if (!isUserLoggedIn) {
         this.$store.dispatch('user/logout')
+        this.$router.push({
+          name: 'login'
+        })
       }
     }
 
