@@ -7,6 +7,11 @@
     </span>
     <div class="menu" v-if="!hideMenu">
       <div class="subMenu">
+        <div class="menu-item">
+          <router-link class="inline-block" :to="{name: 'studioIndex'}">
+          View All
+          </router-link>
+        </div>
         <div class="menu-item" v-for="studio in allStudios">
           <router-link class="inline-block" :to="{name: 'Studio', id: studio.id}">
             {{studio.name}}

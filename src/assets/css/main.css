@@ -48,37 +48,44 @@ hr{
   align-items: flex-start;
 }
 
+.vertical-container-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
 .horizontal-container {
   display: flex;
   justify-content: flex-start;
 }
 
-.potcard-container {
+.card-container {
   display: flex;
   width: 90%;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.potcard {
+.card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   background-color: white;
   width:250px;
-  margin: 10 10;
+  margin: 10px 10px;
   box-shadow: 0 8px 6px -6px#D8D8D8;
 }
 
-.potcard-label {
-  font-size: 16px;
-  font-weight: 600;
+.card-label {
+  font-size: 20px;
+  font-weight: 800;
 }
-.potcard-sublabel {
-  font-size: 12px;
+.card-sublabel {
+  font-size: 14px;
 }
 
-.potcard-section{
+.card-section{
   display:flex;
   flex-direction: column;
 }

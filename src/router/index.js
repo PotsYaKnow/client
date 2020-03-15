@@ -9,7 +9,7 @@ import PotHistory from '@/components/pot/PotHistory.vue'
 import PotHistoryEditing from '@/components/pot/PotHistoryEditing.vue'
 
 import StudioIndex from '@/components/studio/Index.vue'
-//import StudioCreation from '@/components/studio/Create.vue'
+import StudioCreation from '@/components/studio/Create.vue'
 
 Vue.use(Router)
 
@@ -39,8 +39,13 @@ const routes = [{
     component: PotHistoryEditing
   },
   {
+    path: '/studio/create',
+    name: 'studioCreation',
+    component: StudioCreation
+  },
+  {
     path: '/studio',
-    name: 'StudioViewAll',
+    name: 'studioIndex',
     component: StudioIndex
   },
   {
