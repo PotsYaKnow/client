@@ -108,7 +108,7 @@
     "url": "git+https://github.com/kwilson05/PotsYaKnow-client.git"
   },
   "keywords": [],
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/kwilson05/PotsYaKnow-client/issues"
   },

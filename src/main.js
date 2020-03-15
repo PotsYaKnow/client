@@ -8,12 +8,10 @@ import store from './store'
 import '@/assets/css/tailwind.css'
 import '@/assets/css/main.css'
 import Panel from '@/components/global/Panel'
-import VueCookie from 'vue-cookies'
 Vue.config.productionTip = false
 
 sync(store, router)
 
-Vue.use(VueCookie)
 Vue.component('panel', Panel)
 
 new Vue({
