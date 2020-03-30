@@ -5,7 +5,10 @@
     <div class="mx-auto">
       <label class="truncate text-center"> {{studioCardModel.name}}</label>
     </div>
-    <hr  />
+    <hr />
+    <div class="potcard-section">
+      <img v-if="hasPhoto" class="studioPhoto" :src="studioCardModel.photo" loading="lazy" alt="Loading..."/>
+    </div>
     <div>
       <div class="potcard-section">
         <label class="card-label">{{studioCardModel.potCount}}</label>
@@ -30,12 +33,19 @@ export default {
         params: { studioId: studio.id }
       })
     }
+  },
+  computed: {
+    hasPhoto: function () {
+      return !!this.studioCardModel.photo
+    }
   }
 
 }
 
 </script>
 <style scoped>
-
+.studioPhoto {
+  border-radius: 12px;
+}
 
 </style>
