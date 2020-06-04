@@ -30,8 +30,8 @@
             Clay Body
           </label>
           <select class="textfield multiselect-field" id="claybody" v-model="newPot.clayBodyId">
-            <option v-for="claybody in allClayBodies" v-bind:value="claybody.id">
-              {{ claybody.name}}
+            <option v-for="claybody in allClayBodies" v-bind:value="claybody.clayBodyId">
+              {{ claybody.clayBody}}
             </option>
           </select>
         </div>
@@ -43,8 +43,8 @@
             Pot Status
           </label>
           <select class="textfield multiselect-field" id="pot-status" v-model="newPot.potStatusId">
-            <option v-for="potStatus in allPotStatuses" v-bind:value="potStatus.id">
-              {{ potStatus.name }}
+            <option v-for="potStatus in allPotStatuses" v-bind:value="potStatus.statusId">
+              {{ potStatus.status }}
             </option>
           </select>
         </div>
@@ -55,8 +55,8 @@
             Slip Type
           </label>
           <select class="textfield multiselect-field" id="slip" v-model="newPot.slipId">
-            <option v-for="slip in allSlips" v-bind:value="slip.id">
-              {{ slip.name }}
+            <option v-for="slip in allSlips" v-bind:value="slip.potStatusId">
+              {{ slip.status }}
             </option>
           </select>
         </div>
@@ -89,8 +89,8 @@
             Glaze
           </label>
           <select class="textfield multiselect-field" id="glaze" v-model="newPot.glazeId">
-            <option v-for="glaze in allGlazes" v-bind:value="glaze.id">
-              {{ glaze.name }}
+            <option v-for="glaze in allGlazes" v-bind:value="glaze.glazeId">
+              {{ glaze.glaze }}
             </option>
           </select>
         </div>
@@ -101,8 +101,8 @@
             Firing Temperature
           </label>
           <select class="textfield multiselect-field" id="firingtemp" v-model="newPot.firingTempId">
-            <option v-for="firingtemp in allFiringTemps" v-bind:value="firingtemp.id">
-              {{ firingtemp.name }}
+            <option v-for="firingtemp in allFiringTemps" v-bind:value="firingtemp.firingTempId">
+              {{ firingtemp.temperature }}
             </option>
           </select>
         </div>
@@ -113,8 +113,8 @@
             Firing Atmosphere
           </label>
           <select class="textfield multiselect-field" id="firingatmosphere" v-model="newPot.firingAtmosphereId">
-            <option v-for="firingatmosphere in allFiringAtmospheres" v-bind:value="firingatmosphere.id">
-              {{ firingatmosphere.name }}
+            <option v-for="firingatmosphere in allFiringAtmospheres" v-bind:value="firingatmosphere.firingatmosphereId">
+              {{ firingatmosphere.atmosphere }}
             </option>
           </select>
         </div>
@@ -178,7 +178,7 @@ export default {
         name: null,
         published: true,
         potPhoto: null,
-        userId: this.$store.state.user.user.id
+        userId: 1
       }
     }
   },

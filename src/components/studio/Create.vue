@@ -25,7 +25,7 @@
         </div>
         <button class="btn btn-blue" v-on:click="createStudio">
           Create</button>
-        <button class="btn btn-blue" v-on:click="createStudio">
+        <button class="btn btn-blue" v-on:click="cancel">
           Cancel</button>
       </form>
     </panel>
@@ -72,6 +72,11 @@ export default {
       }
 
 
+    },
+    cancel() {
+      this.$router.push({
+        name: 'studioIndex'
+      })
     },
     async createStudio () {
       try {

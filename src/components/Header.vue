@@ -40,6 +40,9 @@ export default {
       try {
         //tell app user is not logged in
         this.$store.dispatch('user/logout')
+        this.$router.push({
+          name: 'login'
+        })
 
       } catch (err) {
 

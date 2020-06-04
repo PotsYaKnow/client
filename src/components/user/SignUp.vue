@@ -12,8 +12,8 @@
           <label class="textfield-label" for="user-location">
             Location
           </label>
-          <select  class="textfield" v-model="userLocationId">
-            <option  v-for="userLocation in allUserLocations" v-bind:value="userLocation.locationId">
+          <select class="textfield" v-model="userLocationId">
+            <option v-for="userLocation in allUserLocations" v-bind:value="userLocation.locationId">
               {{ userLocation.country }}
             </option>
           </select>
@@ -24,7 +24,6 @@
           </label>
           <input v-model="username" class="textfield" id="username" type="text" placeholder="JohnnyPotsington">
         </div>
-
         <div class="mb-6 vertical-container-left">
           <label class="textfield-label" for="password">
             Password
@@ -82,13 +81,14 @@ export default {
           locationId: this.userLocationId
         })
 
-       if (response.status == 200) {
-         this.$store.dispatch('user/login', response.data.token)
-       }
+        if (response.status == 200) {
+          this.$store.dispatch('user/login')
+          this.$router.push({
+            name: 'index'
+          })
+        }
 
-       this.$router.push({
-          name: 'index'
-        })
+
 
       } catch (error) {
         this.error = error.response.data.error

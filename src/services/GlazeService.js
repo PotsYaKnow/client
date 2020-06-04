@@ -3,6 +3,6 @@ import Api from '@/services/Api'
 export default {
 
   getAll() {
-    return Api().get('glaze')
+    return Api().get('glazes')
   }
 }

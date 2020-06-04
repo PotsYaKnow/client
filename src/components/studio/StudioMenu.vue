@@ -8,7 +8,7 @@
     <div class="menu" v-if="!hideMenu">
       <div class="subMenu">
         <div class="menu-item">
-          <router-link class="inline-block" :to="{name: 'studioIndex'}">
+          <router-link class="inline-block" :to="{name: 'create-pot'}">
           View All
           </router-link>
         </div>

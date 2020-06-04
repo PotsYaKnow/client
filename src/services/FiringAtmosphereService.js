@@ -3,6 +3,6 @@ import Api from '@/services/Api'
 export default {
 
   getAll() {
-    return Api().get('firingAtmosphere')
+    return Api().get('firingatmospheres')
   }
 }
