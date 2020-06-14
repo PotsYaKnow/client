@@ -1,6 +1,6 @@
 # potsyaknow
 
-> A pottery community native app built with nativescript-vue
+> A pottery community app built with nativescript-vue
 
 ## Usage
 
