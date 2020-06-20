@@ -1,9 +1,9 @@
 import axios from 'axios/dist/axios'
 
 
-let baseURL = 'http://localhost:8081/'
+let baseURL = 'http://10.0.2.2:8081/'
 
-/*if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+/*if (!TNS_ENV || TNS_ENV === 'development') {
   baseURL = `http://localhost:8081/`
 } else {
   baseURL = 'https://potsyaknow-server.herokuapp.com'
@@ -12,7 +12,6 @@ let baseURL = 'http://localhost:8081/'
 export default () => {
   return axios.create({
     baseURL: baseURL,
-    withCredentials: true,
     headers: {
       'Content-Type': 'application/json',
     }

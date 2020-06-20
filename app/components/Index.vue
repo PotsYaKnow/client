@@ -19,9 +19,10 @@ export default {
   },
   mounted() {},
   methods: {
-    checkIfSignedIn: function () {
-      //move isSignedIn to vuex store
-      if (!this.isSignedIn) {
+    checkIfSignedIn: async function () {
+       this.$store.dispatch('user/loadFromStorage')
+      console.log(this.$store.state.user.token + ' ')
+      if (!this.$store.state.user.token) {
         this.$navigateTo(SignIn)
       }
     }

@@ -49,17 +49,14 @@ export default {
   methods: {
     signIn: async function () {
       this.triedToSignIn = true
-      console.log(this.credentials)
       try {
-
-     //how to make cors call from nativescript
-     //it's not sending headers for some reason
-        const authToken = (await AuthorizationService.signIn(this.credentials))
-        console.log(authToken)
-        //secure store token;
-        //and mark user as signed in with vuex
+        const authToken = (await AuthorizationService.signIn(this.credentials)).data
+        if(authToken)
+        {
+        await this.$store.dispatch('user/setUser', authToken)
+        }
       } catch (err) {
-        this.signInMsg = err.message
+        this.signInErrMsg = err.message
       }
 
     }
